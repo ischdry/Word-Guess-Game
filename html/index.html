@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word Guess Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+
+
+
+<body>
+    
+
+
+    <h1> The Psyhic Game </h1>
+
+    <h4> Guess what letter I'm thinking of </h4>
+
+    <h4> <span id = "winCount"> </span> </h4>
+    <h4> <span id = "lossCount">  </span></h4>
+
+
+    <h4> Your Guesses so far: <span id = "user-guess"> </span> </h4>
+
+        
+
+    <script type="text/javascript">
+
+        var counter = 0;
+            counter++;
+
+
+            var wCount = document.getElementById("winCount");
+            var lCount = document.getElementById("lossCount");
+
+            var wc = 0;
+            var lc = 0;
+
+    
+
+    // Let's start by grabbing a reference to the <span> below.
+   
+    // Next, we give JavaScript a function to execute when onkeyup event fires.
+document.onkeyup = function (event) {
+
+        
+        var userGuess = event.key;
+
+        var randomVar;
+
+        function makeid() {
+            var randomVar = "";
+            var possible = "abcdefghijklmnopqrstuvwxyz";
+
+            for (var i = 0; i < 1; i++) {
+                randomVar += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+
+            return randomVar;
+
+        };
+
+
+        randomVar = makeid();
+
+
+
+        if (userGuess === randomVar) {
+          wc ++;            
+        }
+        else {
+          lc++;
+        };
+
+
+
+        var userText = document.getElementById("user-guess");
+        var newDiv = document.createElement("div");
+
+         newDiv.textContent = event.key;
+
+         userText. appendChild (newDiv);
+ 
+
+
+
+   
+        lCount.textContent = "Losses: " + lc; 
+        wCount.textContent = "Wins: " + wc;
+
+
+
+};
+
+    </script>
+
+</body>
+</html>
